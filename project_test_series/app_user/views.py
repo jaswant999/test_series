@@ -21,7 +21,7 @@ class LoginView(APIView):
         username = data.get('username', None)
         password = data.get('password', None)
 
-        user = CustomUser.objects.filter(username=username).first()
+        user = CustomUser.objects.filter(email=username).first()
 
         if user is None:
             return Response({'error': 'Invalid username or password'})
